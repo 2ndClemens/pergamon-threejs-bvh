@@ -193,10 +193,10 @@ function init() {
 
 function loadColliderEnvironment() {
 
-	new GLTFLoader().load( '../assets/scene.gltf', res => {
+	new GLTFLoader().load( '../assets/asklepieion-propylon.gltf', res => {
 
 		const gltfScene = res.scene;
-		gltfScene.scale.setScalar( .01 );
+		gltfScene.scale.setScalar( 1 );
 
 		const box = new THREE.Box3();
 		box.setFromObject( gltfScene );
@@ -260,7 +260,7 @@ function loadColliderEnvironment() {
 
 			if ( visualGeometries.length ) {
 
-				const newGeom = BufferGeometryUtils.mergeBufferGeometries( visualGeometries );
+				const newGeom = BufferGeometryUtils.mergeGeometries( visualGeometries );
 				const newMesh = new THREE.Mesh( newGeom, new THREE.MeshStandardMaterial( { color: parseInt( hex ), shadowSide: 2 } ) );
 				newMesh.castShadow = true;
 				newMesh.receiveShadow = true;
